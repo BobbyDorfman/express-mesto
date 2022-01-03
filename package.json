@@ -1,0 +1,32 @@
+{
+  "name": "express-mesto",
+  "version": "1.0.0",
+  "description": "mesto backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stormuke/express-mesto.git"
+  },
+  "author": "Alexey Kazakov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Stormuke/express-mesto/issues"
+  },
+  "homepage": "https://github.com/Stormuke/express-mesto#readme",
+  "devDependencies": {
+    "eslint": "^8.5.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "express": "^4.17.2",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "mongoose": "^6.1.4"
+  }
+}
