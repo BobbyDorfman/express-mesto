@@ -4,6 +4,7 @@ const User = require('../models/user');
 const NotFound = require('../errors/NotFound');
 const ValidationError = require('../errors/ValidationError');
 const ConflictError = require('../errors/ConcflictError');
+
 const getUsers = (req, res, next) => {
   const { userList } = {};
   return User.find(userList)
@@ -51,7 +52,7 @@ const createUser = (req, res, next) => {
         throw new ConflictError({ message: 'Пользователь с таким email уже существует' });
       }
     })
-    .catch(next)
+    .catch(next);
 };
 
 const getCurrentUser = (req, res, next) => User.findById(req.user._id)
