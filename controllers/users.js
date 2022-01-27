@@ -37,18 +37,18 @@ const createUser = (req, res, next) => {
   } = req.body;
   bcrypt.hash(password, 10)
     .then((hash) => User.create({
-        name,
-        about,
-        avatar,
-        email,
-        password: hash,
-      }))
+      name,
+      about,
+      avatar,
+      email,
+      password: hash,
+    }))
     .then((user) => res.status(201).send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new ValidationError('Переданы некорректные данные при создании пользователя');
       } else if (err.code === 11000) {
-        throw new ConflictError({ message: 'Пользователь с таким email уже существует' });
+        throw new ConflictError('Пользователь с таким email уже существует');
       }
     })
     .catch(next);
