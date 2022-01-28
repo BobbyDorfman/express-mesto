@@ -52,6 +52,8 @@ const likeCard = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError' || err.name === 'ValidationError') {
         throw new ValidationError('Переданы некорректные данные');
+      } else if (err.name === 'NotFoundError') {
+        throw new NotFound('Передан несуществующий _id карточки');
       }
     })
     .catch(next);
@@ -66,6 +68,8 @@ const dislikeCard = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new ValidationError('Переданы некорректные данные');
+      } else if (err.name === 'NotFoundError') {
+        throw new NotFound('Передан несуществующий _id карточки');
       }
     })
     .catch(next);

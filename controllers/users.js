@@ -22,6 +22,8 @@ const getUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError') {
         throw new ValidationError('Переданы некорректные данные');
+      } else if (err.name === 'NotFoundError') {
+        throw new NotFound('Пользователь не найден');
       }
     })
     .catch(next);
@@ -62,6 +64,8 @@ const getCurrentUser = (req, res, next) => User.findById(req.user._id)
   .catch((err) => {
     if (err.name === 'CastError') {
       throw new ValidationError('Переданы некорректные данные');
+    } else if (err.name === 'NotFoundError') {
+      throw new NotFound('Пользователь не найден');
     }
   })
   .catch(next);
