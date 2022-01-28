@@ -12,8 +12,8 @@ const { PORT = 3000 } = process.env;
 const app = express();
 app.use(bodyParser.json());
 
-app.post('/sign-up', userValidation, createUser);
-app.post('/sign-in', loginValidation, login);
+app.post('/signup', userValidation, createUser);
+app.post('/signin', loginValidation, login);
 
 app.use(auth);
 
